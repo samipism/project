@@ -60,14 +60,14 @@ Date NtotalDays(int ed)
             for (j=1;j<13;j++)
             {
                 sum += no[j];
-                if (sum>ed){
+                if (sum>=ed){
 
                                 sum1=sum-no[j];
 
                 break;
                 }
             }
-            if (sum>ed)
+            if (sum>=ed)
             break;
 
         ch=fgetc(fptr);
