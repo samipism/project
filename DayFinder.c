@@ -28,15 +28,18 @@ int main()
     scanf("%d",&year);
     fflush(stdin);
     year2=year%100;
-    //year2=((((year%4==0)&&(year%100==0)&&(year%400==0))||((year%4==0)&&(year%100!=0)))&&((month==1)/*||(month==2)*/))?year2-1:year2;
+    monthc[0]=(((year%4==0)&&(year%100==0)&&(year%400==0))||((year%4==0)&&(year%100!=0)))?0:1;
+    monthc[1]=(((year%4==0)&&(year%100==0)&&(year%400==0))||((year%4==0)&&(year%100!=0)))?3:4;
     Rem=(year>=2000 && year<=2100)?((year2+(year2/4)+monthc[month-1]+date-1)%7):((year2+(year2/4)+monthc[month-1]+date)%7);
     printf("%d",Rem);
     if(month<6 && month%2==0)
     {
-        if((month!=2&&date<=30)||(year2==(year%100)&&month==2&&date<=28)||(year2!=(year%100)&&month==2&&date<=29))
+            if(month!=2&&date<=30)
+            Display(Rem);
+            else if(((month==2)&&(((year%4==0)&&(year%100==0)&&(year%400==0))||((year%4==0)&&(year%100!=0)))&&(date<=29))||((month==2)&&~(((year%4==0)&&(year%100==0)&&(year%400==0))||((year%4==0)&&(year%100!=0)))&&(date<=29)))
             Display(Rem);
             else
-                printf("Out of range");
+            printf("Out of range");
     }
     else if(month>6 && month%2!=0)
     {
@@ -44,6 +47,8 @@ int main()
             Display(Rem);
     }
     else if(month==6)
+    Display(Rem);
+    else if(month<6 || month>6)
     Display(Rem);
     else
         printf("Out of Range");
