@@ -13,7 +13,7 @@ void adTObs(void);
 
 int main()
 {
-    system("color 1F");
+    system("color 1F");//this changes the background color to blue and foreground color to white
     x_axis(20,5,40);
     x_axis(20, 21, 40);
     y_axis(20, 5, 16);
