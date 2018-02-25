@@ -5,60 +5,69 @@
 #include "ADtoBS.h"
 #include "extras.h"
 #include "DayFinder.h"
+#include "Key.h"
+#include "month.h"
 
 void bsTOad(void);
 void adTObs(void);
+
 int main()
 {
-    x_axis(10,1,40);
-    x_axis(10, 15, 40);
-    y_axis(10,1, 15);
-    y_axis(50, 1, 15);
-    gotoxy(15,3);
+    system("color 1F");
+    x_axis(20,5,40);
+    x_axis(20, 21, 40);
+    y_axis(20, 5, 16);
+    y_axis(60, 5, 17);
+    gotoxy(25,7);
     printf("+++++++DATE CONVERTER+++++++");
 
-    gotoxy(14,5);
-    printf("1. B.S to A.D");
-    gotoxy(14,7);
-    printf("2. A.D to B.S");
-    gotoxy(14,9);
-    printf("3. About the project");
-    gotoxy(14,11);
-    printf("4. Credits");
-    gotoxy(14,13);
-    printf("5. Exit");
+    gotoxy(30,10);
+    printf("B.S to A.D");
+    gotoxy(30,12);
+    printf("A.D to B.S");
+    gotoxy(30,14);
+    printf("About the project");
+    gotoxy(30,16);
+    printf("Credits");
+    gotoxy(30,18);
+    printf("Exit");
 
     char press;
     option:
-        fflush(stdin);
-       press = getch();
 
-    switch(press)
+    fflush(stdin);
+    press = keys();
+
+    if(press == 10)
     {
-
-    case '1':
         system("cls");
         bsTOad();
-        break;
-    case '2':
-        system("cls");
-        adTObs();
-        break;
-   /* case '3':
+    }
+    else if(press == 12)
+        {
+            system("cls");
+            adTObs();
+        }
+    /*else if(press == 14)
+        {
         system("cls");
         about();
-        break;
-    case '4':
+        }
+    else if (press == 16)
+        {
         system("cls");
         credits();
-        break;*/
-    case '5':
+        }*/
+    else if(press == 18)
+        {
         system("cls");
+        system("color 07");
         exit(0);
-    default:
+        }
+    else
         goto option;
 
-    }
+
 
     return 0;
 
@@ -77,27 +86,33 @@ void bsTOad(void){
     year_1:
     gotoxy(18,5);
     scanf("%d",&n.y);
+    EscOut();
     if(n.y < 2000 || n.y > 2090)
        {
         out();
+        Back(18,5,n.y);
         fflush(stdin);
         goto year_1;
        }
     month_1:
     gotoxy(18,7);
     scanf("%d",&n.m);
+    EscOut();
     if(n.m < 1 || n.m >12)
         {
             out();
+            Back(18,7,n.m);
             fflush(stdin);
             goto month_1;
         }
     day_1:
     gotoxy(18,9);
     scanf("%d",&n.d);
+    EscOut();
     if(n.d < 1 || n.d > 32)
         {
             out();
+            Back(18,9,n.d);
             fflush(stdin);
             goto day_1;
         }
@@ -114,8 +129,7 @@ void bsTOad(void){
     date(43,5);
     gotoxy(53,5);
     printf("%d",fe.y);
-    gotoxy(53,7);
-    printf("%d",fe.m);
+    EnglishMonth(fe.m);
     gotoxy(53,9);
     printf("%d",fe.d);
     DayFind(fe);
@@ -137,27 +151,35 @@ void adTObs(void)
     year_1:
     gotoxy(18,5);
     scanf("%d",&E.y);
+    EscOut();
     if(E.y < 1934 || E.y > 2034)
        {
         out();
+        Back(18,5,E.y);
         fflush(stdin);
         goto year_1;
        }
     month_1:
     gotoxy(18,7);
+
     scanf("%d",&E.m);
+    EscOut();
     if(E.m < 1 || E.m >12)
         {
             out();
+            Back(18,7,E.m);
             fflush(stdin);
             goto month_1;
         }
     day_1:
     gotoxy(18,9);
+
     scanf("%d",&E.d);
+    EscOut();
     if(E.d < 1 || E.d > 31)
         {
             out();
+            Back(18,9,E.d);
             fflush(stdin);
             goto day_1;
         }
@@ -174,8 +196,7 @@ void adTObs(void)
     date(43,5);
     gotoxy(53,5);
     printf("%d",fn.y);
-    gotoxy(53,7);
-    printf("%d",fn.m);
+    NepaliMonth(fn.m);
     gotoxy(53,9);
     printf("%d",fn.d);
     DayFind(E);
