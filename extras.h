@@ -1,6 +1,3 @@
-#include<stdio.h>
-#include <windows.h>
-#include <dos.h>
 COORD coord={0,0}; // this is global variable
                                     //center of axis is set to the top left corner of the screen
  void gotoxy(int x,int y)
@@ -10,10 +7,11 @@ COORD coord={0,0}; // this is global variable
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
  }
 
- unsigned char ch=178;
+ unsigned char ch=177;
  int i;
 void end(void)
 {
+    system("color 8A");
     NoPress:
     gotoxy(20,20);
     printf("Press ESC to return to main menu");
@@ -62,7 +60,7 @@ void end(void)
 
     void out(void)
     {
-
+        system("color 8C");
         char outRange[]="OUT OF RANGE!!!Please enter again...";
         gotoxy(20,20);
         printf("%s",outRange);
@@ -88,7 +86,7 @@ void end(void)
     void EscOut()
     {
         gotoxy(20,20);
-
+        system("color 8F");
         for (i=0; i <36;i++)
             printf(" ");
     }
@@ -106,5 +104,3 @@ void end(void)
         for(i=0; i<IntLen; i++)
         printf(" ");
     }
-
-

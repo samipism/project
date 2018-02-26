@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 void EnglishMonth(int m)
 {
     gotoxy(53,7);
