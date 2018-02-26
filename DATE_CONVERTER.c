@@ -14,6 +14,7 @@ void adTObs(void);
 
 int main()
 {
+
     system("cls");
     system("color 8F");
     x_axis(20,5,40);
