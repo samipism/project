@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#define UP 72
+#define DOWN 80
 int keys()
 {
 
@@ -13,33 +13,35 @@ int keys()
 
     if(keyPress == 13)
         return v;
-    else
+    else if (keyPress == UP)
     {
-        switch(keyPress) { // the real value
-        case 'w':
-        case 'W':
             // code for arrow up
             v=v-2;
-            if(v<10)
-                keys();
+            if(v<=10)
+                {
+                    gotoxy(h,v+2);
+                    printf("  ");
+                    v=10;
+                    goto Opt;
+                }
             gotoxy(h,v+2);
             printf("  ");
             goto Opt;
-            break;
-        case 's':
-        case 'S':// code for arrow down
+
+    }
+       else if(keyPress == DOWN)// code for arrow down
+           {
             v=v+2;
-            if(v>18){
+            if(v>=18){
                 gotoxy(h,v-2);
                 printf("  ");
-                keys();
+                v=18;
+                goto Opt;
             }
             gotoxy(h,v-2);
             printf("  ");
             goto Opt;
-            break;
-        default:
+           }
+        else
             goto Opt;
     }
-    }
-}

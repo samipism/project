@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdio.h>
 typedef struct{
     int d;
     int m;
@@ -7,6 +5,77 @@ typedef struct{
 } Date;
 
 Date english(int,int);
+Date ConvertToAD(Date);
+
+void bsTOad(void){
+
+    system("cls");
+    Date n,fe;
+    gotoxy(12,2);
+    printf("Date in B.S.");
+
+    box1();
+
+    date(10,5);
+    year_1:
+    gotoxy(18,5);
+    scanf("%d",&n.y);
+    EscOut();
+    if(n.y < 2000 || n.y > 2090)
+       {
+        out();
+        Back(18,5,n.y);
+        fflush(stdin);
+        goto year_1;
+       }
+    month_1:
+    gotoxy(18,7);
+    scanf("%d",&n.m);
+    EscOut();
+    if(n.m < 1 || n.m >12)
+        {
+            out();
+            Back(18,7,n.m);
+            fflush(stdin);
+            goto month_1;
+        }
+    day_1:
+    gotoxy(18,9);
+    scanf("%d",&n.d);
+    EscOut();
+    if(n.d < 1 || n.d > 32)
+        {
+            out();
+            Back(18,9,n.d);
+            fflush(stdin);
+            goto day_1;
+        }
+    if(n.d < 16 && n.m <=9 && n.y == 2000)
+    {
+        out();
+        Back(18,9,n.d);
+        Back(18,7,n.m);
+        Back(18,5,n.y);
+        goto year_1;
+    }
+    fe=ConvertToAD(n);
+    gotoxy(45,2);
+    printf("Date in A.D.");
+
+
+    box2();
+     gotoxy(43,11);
+    printf("Weekday ");
+    date(43,5);
+    gotoxy(53,5);
+    printf("%d",fe.y);
+    EnglishMonth(fe.m);
+    gotoxy(53,9);
+    printf("%d",fe.d);
+    DayFind(fe);
+    end();
+
+    }
 
 Date ConvertToAD(Date N)
 {
