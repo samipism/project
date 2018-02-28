@@ -1,8 +1,80 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-
 Date NtotalDays(int ed);
+Date ConvertToBS(Date);
+
+void adTObs(void)
+{
+    system("cls");
+    Date E, fn;
+    gotoxy(12,2);
+    printf("Date in A.D.");
+
+    box1();
+
+    date(10,5);
+    year_1:
+    gotoxy(18,5);
+    scanf("%d",&E.y);
+    EscOut();
+    if(E.y < 1943 || E.y > 2034)
+       {
+        out();
+        Back(18,5,E.y);
+        fflush(stdin);
+        goto year_1;
+       }
+    month_1:
+    gotoxy(18,7);
+
+    scanf("%d",&E.m);
+    EscOut();
+    if(E.m < 1 || E.m >12)
+        {
+            out();
+            Back(18,7,E.m);
+            fflush(stdin);
+            goto month_1;
+        }
+    day_1:
+    gotoxy(18,9);
+
+    scanf("%d",&E.d);
+
+    EscOut();
+    if(E.d < 1 || E.d > 31)
+        {
+            out();
+            Back(18,9,E.d);
+            fflush(stdin);
+            goto day_1;
+        }
+    if((E.d < 13 && E.m <= 4 && E.y == 1943) || (E.d > 13 && E.m >=4 && E.y >= 2034))
+    {
+        out();
+        Back(18,9,E.d);
+        Back(18,7,E.m);
+        Back(18,5,E.y);
+        goto year_1;
+    }
+
+    fn=ConvertToBS(E);
+
+    gotoxy(45,2);
+    printf("Date in B.S.");
+
+
+    box2();
+     gotoxy(43,11);
+    printf("Weekday ");
+    date(43,5);
+    gotoxy(53,5);
+    printf("%d",fn.y);
+    NepaliMonth(fn.m);
+    gotoxy(53,9);
+    printf("%d",fn.d);
+    DayFind(E);
+    end();
+}
+
 
 Date ConvertToBS(Date e)
 {
