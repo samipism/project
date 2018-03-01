@@ -8,6 +8,7 @@
 #include "DayFinder.h"
 #include "Key.h"
 #include "about.h"
+#include "Welcome.h"
 
 void bsTOad(void);
 void adTObs(void);
@@ -17,6 +18,9 @@ int main()
 
     system("cls");
     system("color 8F");
+    Welcome(20,30);
+    Sleep(1000);
+    system("cls");
     x_axis(20,5,40);
     x_axis(20, 21, 40);
     y_axis(20, 5, 16);
