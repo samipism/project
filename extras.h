@@ -104,3 +104,57 @@ void end(void)
         for(i=0; i<IntLen; i++)
         printf(" ");
     }
+
+void rewind1(void)
+{
+    system("color 8A");
+    gotoxy(10,21);
+    for(i=0;i<60;i++)
+        printf("%c",ch);
+        gotoxy(20,18);
+    printf("Want to convert another date? (y/n)");
+    char YorN;
+    Rewind:
+
+    YorN = getch();
+
+    if(YorN == 'N' || YorN == 'n')
+       {
+        system("cls");
+        main();
+       }
+    else if(YorN == 'Y' || YorN == 'y')
+    {
+        system("cls");
+        adTObs();
+    }
+    else
+        goto Rewind;
+}
+
+void rewind2(void)
+{
+    system("color 8A");
+    gotoxy(10,21);
+    for(i=0;i<60;i++)
+        printf("%c",ch);
+        gotoxy(20,18);
+    printf("Want to convert another date? (y/n)");
+    char YorN;
+    Rewind:
+
+    YorN = getch();
+
+    if(YorN == 'N' || YorN == 'n')
+       {
+        system("cls");
+        main();
+       }
+    else if(YorN == 'Y' || YorN == 'y')
+    {
+        system("cls");
+        bsTOad();
+    }
+    else
+        goto Rewind;
+}
