@@ -24,7 +24,7 @@ void credits()
 void toMain()
 {
     if(getch() == 27)
-        main();
+        MainMenu();
     else
         toMain();
 }

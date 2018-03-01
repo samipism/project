@@ -10,23 +10,35 @@
 #include "about.h"
 #include "Welcome.h"
 
-void bsTOad(void);
-void adTObs(void);
+
+void MainMenu(void);
 
 int main()
 {
 
     system("cls");
-    system("color 8F");
     Welcome(20,30);
-    Sleep(1000);
+    Sleep(2000);
+
+    MainMenu();
+    return 0;
+
+}
+
+void MainMenu(void)
+{
     system("cls");
+    system("color 8F");
     x_axis(20,5,40);
     x_axis(20, 21, 40);
     y_axis(20, 5, 16);
     y_axis(60, 5, 17);
-    gotoxy(25,7);
-    printf("+++++++DATE CONVERTER+++++++");
+    gotoxy(32,7);
+    printf("PARIVARTAN");
+    gotoxy(32,8);
+    unsigned char c=196;
+    for(i = 0; i<10; i++)
+        printf("%c",c);
 
     gotoxy(30,10);
     printf("B.S to A.D");
@@ -62,7 +74,5 @@ int main()
         }
     else
         goto option;
-
-return 0;
 
 }

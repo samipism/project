@@ -1,5 +1,6 @@
 Date NtotalDays(int ed);
 Date ConvertToBS(Date);
+void rewind1(void);
 
 void adTObs(void)
 {
@@ -150,4 +151,31 @@ Date NtotalDays(int ed)
     n.d=ed-sum1;
     n.m=j;
     return (n);
+}
+
+void rewind1(void)
+{
+    system("color 8A");
+    gotoxy(10,21);
+    for(i=0;i<60;i++)
+        printf("%c",ch);
+        gotoxy(20,18);
+    printf("Want to convert another date? (y/n)");
+    char YorN;
+    Rewind:
+
+    YorN = getch();
+
+    if(YorN == 'N' || YorN == 'n')
+       {
+        system("cls");
+        MainMenu();
+       }
+    else if(YorN == 'Y' || YorN == 'y')
+    {
+        system("cls");
+        adTObs();
+    }
+    else
+        goto Rewind;
 }

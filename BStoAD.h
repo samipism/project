@@ -6,6 +6,7 @@ typedef struct{
 
 Date english(int,int);
 Date ConvertToAD(Date);
+void rewind2(void);
 
 void bsTOad(void){
 
@@ -167,5 +168,33 @@ Date english(int ey,int diff)
     e.d=((ey % 4 ==0 && ey%100!=0)|| ey%400==0)?diff+leap[j-1]:diff+norm[j-1];
     return e;
 }
+
+void rewind2(void)
+{
+    system("color 8A");
+    gotoxy(10,21);
+    for(i=0;i<60;i++)
+        printf("%c",ch);
+        gotoxy(20,18);
+    printf("Want to convert another date? (y/n)");
+    char YorN;
+    Rewind:
+
+    YorN = getch();
+
+    if(YorN == 'N' || YorN == 'n')
+       {
+        system("cls");
+        MainMenu();
+       }
+    else if(YorN == 'Y' || YorN == 'y')
+    {
+        system("cls");
+        bsTOad();
+    }
+    else
+        goto Rewind;
+}
+
 
 
