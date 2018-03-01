@@ -9,15 +9,20 @@ void about()
 void credits()
 {
     system("cls");
-
-    printf("This project is prepared by\n1. Samip Poudel (074BCT533)\n2. Safal Thapaliya (074BCT531)\n3. Suraj Pandey (074BCT547)");
+    system("color 8F");
+    gotoxy(4,3);
+    puts("This project is prepared by");
+    gotoxy(4,5);
+    puts("1. Samip Poudel (074BCT533)");
+    gotoxy(4,7);
+    puts("2. Safal Thapaliya (074BCT531)");
+    gotoxy(4,9);
+    puts("3. Suraj Pandey (074BCT547)");
     toMain();
 }
 
 void toMain()
 {
-    gotoxy(20,20);
-    printf("Press ESC to return to main menu");
     if(getch() == 27)
         main();
     else
