@@ -73,7 +73,7 @@ void bsTOad(void){
     gotoxy(53,9);
     printf("%d",fe.d);
     DayFind(fe);
-    end();
+    rewind2();
 
     }
 

@@ -72,7 +72,7 @@ void adTObs(void)
     gotoxy(53,9);
     printf("%d",fn.d);
     DayFind(E);
-    end();
+    rewind1();
 }
 
 
