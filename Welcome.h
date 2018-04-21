@@ -18,7 +18,7 @@ void Welcome(int a,int b)
     {
         gotoxy(j+1,b+2);
         if(s[i]=='-' && (i<20||i>26)){
-            printf(".");
+            printf("#");
         }
         else
         {
@@ -42,6 +42,6 @@ void Welcome(int a,int b)
             printf("and Safal Present...");
         }
                 j++;
-        Sleep(40);
+        Sleep(35);
     }
 }

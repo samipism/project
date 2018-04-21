@@ -11,6 +11,7 @@ void rewind2(void);
 void bsTOad(void){
 
     system("cls");
+    system ("color 8F");
     Date n,fe;
     gotoxy(12,2);
     printf("Date in B.S.");

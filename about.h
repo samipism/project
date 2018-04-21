@@ -2,7 +2,7 @@ void toMain(void);
 void about()
 {
     system("cls");
-    printf("This is date converter that converts date from\nA.D to B.S and B.S to A.D");
+    printf("This is date converter that converts date from\nA.D to B.S and B.S to A.D.\nThe range for B.S to A.D date is 2000 B.S to 2090 B.S.\n");
     toMain();
 }
 

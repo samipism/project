@@ -1,11 +1,14 @@
 Date NtotalDays(int ed);
 Date ConvertToBS(Date);
 void rewind1(void);
+int checkleap(Date);
 
 void adTObs(void)
 {
     system("cls");
+    system("color 8F");
     Date E, fn;
+    int FebChk;
     gotoxy(12,2);
     printf("Date in A.D.");
 
@@ -39,16 +42,16 @@ void adTObs(void)
     gotoxy(18,9);
 
     scanf("%d",&E.d);
-
+   FebChk=checkleap(E);
     EscOut();
-    if(E.d < 1 || E.d > 31)
+    if((E.d < 1 || E.d > 31) || ((E.d > 13 && E.m >=4 && E.y >= 2034))|| (E.m == 2 && E.d >=30)||(FebChk!=0&&E.d>=29))
         {
             out();
             Back(18,9,E.d);
             fflush(stdin);
             goto day_1;
         }
-    if((E.d < 13 && E.m <= 4 && E.y == 1943) || (E.d > 13 && E.m >=4 && E.y >= 2034))
+    if((E.d < 13 && E.m <= 4 && E.y == 1943))
     {
         out();
         Back(18,9,E.d);
@@ -56,6 +59,8 @@ void adTObs(void)
         Back(18,5,E.y);
         goto year_1;
     }
+
+
 
     fn=ConvertToBS(E);
 
@@ -178,4 +183,10 @@ void rewind1(void)
     }
     else
         goto Rewind;
+}
+
+int checkleap(Date e)
+{
+    if(((e.y%4==0)&&(e.y%100==0)&&(e.y%400==0))||((e.y%4==0)&&(e.y%100!=0)))
+        return 0;
 }

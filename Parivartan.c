@@ -18,7 +18,7 @@ int main()
 
     system("cls");
     Welcome(20,30);
-    Sleep(2000);
+    Sleep(1000);
 
     MainMenu();
     return 0;
